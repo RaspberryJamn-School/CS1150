@@ -15,7 +15,10 @@ public class GrabinskiJamesGE01 {
 	}
 	public static void main(String[] args) {
 		System.out.println("Oi oi oi we coding");
-		raindrop_number(6);
+		for (int i = 1; i <= 12; i++) {
+			raindrop_number(i);
+			System.out.println();
+		}
 	}
 
 }
