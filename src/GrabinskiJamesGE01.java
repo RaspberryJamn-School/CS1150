@@ -3,6 +3,10 @@ public class GrabinskiJamesGE01 {
 	private static int raindrop_number(int arg) {
 		System.out.print(arg);
 		System.out.print(" ");
+		if (!(arg>=1)) {
+			System.out.print("OI!");
+			return 0;
+		}
 		if (arg == 1) {
 			return 1;
 		}
