@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  *  Name: James Grabinski
  *  Class: CS1150 M/W
@@ -10,8 +12,13 @@
 public class GrabinskiJamesGE01 { // Class GE01
 
 	public static void main(String[] args) { // main
-		System.out.println("Oi oi oi we coding");
-		
+		final double PI = 3.14159265;
+		Scanner input = new Scanner(System.in);
+		System.out.print("Gimme a radius please: ");
+		double radius = input.nextDouble();
+		double area = radius * radius * PI;
+		System.out.println("Area of circle with radius = " + radius + " is: " + area);
+		input.close();
 	}
 
 }
