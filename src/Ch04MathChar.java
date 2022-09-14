@@ -74,6 +74,10 @@ public class Ch04MathChar {
 			System.out.printf("A digit was entered, ascii value %d\n", (int)someChar);
 		}
 		input.close();
+		
+		for (int i = 0; i<256; i++) {
+			System.out.print((char)i);
+		}
 	}
 
 }
