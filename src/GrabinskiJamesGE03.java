@@ -21,6 +21,7 @@ public class GrabinskiJamesGE03 {
 		} else {
 			System.out.print("Invalid radius entered. Unable to perform calculation.");
 		}
+		input.close();
 	}
 
 }
