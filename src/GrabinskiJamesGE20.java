@@ -18,18 +18,18 @@ public class GrabinskiJamesGE20 {
 	
 	
 // Define the circle class with two constructors
-class SimpleRectangle {
+class oldOneSimpleRectangle {
 	  double length;
 	  double width;
 	
 	  /** Construct a rectangle with length 1 and width 2 */
-	  SimpleRectangle() {
+	  oldOneSimpleRectangle() {
 	    length = 1;
 	    width = 2;
 	  }
 	
 	  /** Construct a circle with a specified length and width */
-	  SimpleRectangle(double newLength, double newWidth) {
+	  oldOneSimpleRectangle(double newLength, double newWidth) {
 		  length = newLength;
 		  width = newWidth;
 	  }
