@@ -42,6 +42,7 @@ class Course {
 		this.maxStudents = maxNumStudents;
 		students = new Student[maxNumStudents];
 		numStudents = 0;
+		numCourses++;
 	}
 	
 }
