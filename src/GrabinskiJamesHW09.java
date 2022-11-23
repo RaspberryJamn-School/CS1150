@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class GrabinskiJamesHW09 {
 
@@ -10,6 +13,28 @@ public class GrabinskiJamesHW09 {
 		createCars(cars);
 		System.out.println("Cars at start of simulation");
 		printCars(cars);
+		
+		int milesTraveled = 0;
+		boolean raceIsActive = true;
+		while (raceIsActive) {
+			milesTraveled += 1.0;
+			for (int i = 0; i < cars.length; i++) {
+				cars[i].updateFuel(1.0);
+				if (cars[i].isOutOfGas()) {
+					raceIsActive = false;
+				}
+			}
+			if (milesTraveled%10==0) {
+				System.out.println("Miles Traveled = " + milesTraveled);
+				printCars(cars);
+			}
+		}
+		
+		System.out.println("Cars at end of simulation");
+		printCars(cars);
+		Car shortestRunCar = findCarWithNoGas(cars);
+		System.out.println(shortestRunCar.getOwner() + "'s car ran out of gas after " + milesTraveled + " miles");
+		
 	}
 	
 	private static void createCars(Car[] cars) {
@@ -34,8 +59,28 @@ public class GrabinskiJamesHW09 {
 		for (int i = 0; i < cars.length; i++) {
 			System.out.printf("%s%s%.2f		%.2f\n", padWidthByTab(cars[i].getOwner(), 2), padWidthByTab(cars[i].getBrand(), 3), cars[i].getFuelEconomy(), cars[i].getFuelGauge().getGallons());
 		}
+		System.out.println("\n");
 	}
-} 
+	
+    public static Car findCarWithNoGas(Car[] cars) {
+    	Car carThatExistsTrustMeMaybe = cars[0];
+    	for (int i = 1; i < cars.length; i++) {
+			if (cars[i].isOutOfGas()) {
+				carThatExistsTrustMeMaybe = cars[i];
+			}
+		}
+    	return carThatExistsTrustMeMaybe;
+    }
+    
+    public static void writeCarDetailsToFile(Car[] cars) throws IOException {
+    	File file = new File("hw09output.txt");
+    	Scanner writefile = new Scanner(file);
+    	for (int i = 0; i < cars.length; i++) {
+			System.out.printf("%s%s%.2f		%.2f\n", padWidthByTab(cars[i].getOwner(), 2), padWidthByTab(cars[i].getBrand(), 3), cars[i].getFuelEconomy(), cars[i].getFuelGauge().getGallons());
+		}
+    	writefile.close();
+    }
+}
 
 /**Class that represents one car
  * */
